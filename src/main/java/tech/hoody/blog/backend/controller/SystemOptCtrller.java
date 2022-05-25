@@ -3,17 +3,16 @@ package tech.hoody.blog.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tech.hoody.blog.backend.domain.Option;
-import tech.hoody.blog.backend.repository.OptionRepository;
 import tech.hoody.blog.backend.service.OptionsService;
 
 @RestController
 @RequestMapping(value = "/option")
 public class SystemOptCtrller {
 
-    private OptionRepository optionsService;
+    private OptionsService optionsService;
 
     @Autowired
-    public SystemOptCtrller(OptionRepository optionsService) {
+    public SystemOptCtrller(OptionsService optionsService) {
         this.optionsService = optionsService;
     }
 
@@ -22,9 +21,9 @@ public class SystemOptCtrller {
         return new RespWrapper<>("echo"+msg);
     }
 
-    @RequestMapping(value = "save")
+    @RequestMapping(value = "save",method = RequestMethod.POST)
     public RespWrapper<Option> saveOption(@RequestBody Option option){
-        optionsService.save(option);
+        optionsService.saveOption(option);
         return new RespWrapper<>(option);
     }
 

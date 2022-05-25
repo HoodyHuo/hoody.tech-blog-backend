@@ -1,28 +1,22 @@
 package tech.hoody.blog.backend.domain;
 
-import org.hibernate.annotations.Table;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 /**
  * Blog options
  * @author hoody
  * @since 2022/5/25
  */
-@Table(appliesTo = "options", comment = "Blog options")
-public class Option {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id",columnDefinition = "auto")
-    private Long id;
+@Entity
+@Table(name = "options")
+public class Option {
 
     /**
      * option_name to use
      */
+    @Id
     @Column(name="option_name",length = 20,nullable = false,unique = true)
     private String optionName;
 
@@ -45,14 +39,6 @@ public class Option {
      */
     @Column(name = "autoload",nullable = false)
     private boolean autoload;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getOptionName() {
         return optionName;
@@ -89,7 +75,6 @@ public class Option {
     @Override
     public String toString() {
         return "Option{" +
-                "id=" + id +
                 ", optionName='" + optionName + '\'' +
                 ", optionValue='" + optionValue + '\'' +
                 ", optionDescription='" + optionDescription + '\'' +

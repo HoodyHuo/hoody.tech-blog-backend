@@ -11,12 +11,12 @@ import tech.hoody.blog.backend.domain.Option;
  * @author hoody
  * @since 2022/5/25
  */
-//@Service
+@Service
 public class OptionsService {
 
     private final OptionRepository optionRepository;
 
-//    @Autowired
+    @Autowired
     public OptionsService(OptionRepository optionRepository) {
         this.optionRepository = optionRepository;
     }
