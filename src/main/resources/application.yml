@@ -2,6 +2,6 @@ spring:
   datasource:
     host: ${DB_HOST}
     url: jdbc:mysql://${spring.datasource.host}/hoody-blog
-    username: ${DB_HOST}
+    username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: "com.mysql.cj.jdbc.Driver"
